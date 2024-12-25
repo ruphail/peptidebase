@@ -1,0 +1,13 @@
+{
+  "name": "peptidebase",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev:frontend": "cd frontend && node ./node_modules/vite/bin/vite.js",
+    "dev:backend": "cd backend && node ./src/index.js",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
