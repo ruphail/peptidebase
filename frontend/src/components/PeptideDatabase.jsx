@@ -7,6 +7,15 @@ import {
   CardHeader,
   CardTitle,
 } from "../components/ui/card";  // Changed from "@/components/ui/card"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 
 const PeptideDatabase = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -121,8 +130,11 @@ const PeptideDatabase = () => {
       {/* Results Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {mockPeptides.map((peptide) => (
-          <Card key={peptide.id} className="hover:shadow-lg transition-shadow cursor-pointer"
-                onClick={() => setSelectedPeptide(peptide)}>
+          <Card 
+            key={peptide.id} 
+            className="hover:shadow-lg transition-shadow cursor-pointer"
+            onClick={() => setSelectedPeptide(peptide)}
+          >
             <CardHeader>
               <CardTitle className="text-lg">{peptide.id}</CardTitle>
               <CardDescription>Source: {peptide.source}</CardDescription>
@@ -152,6 +164,68 @@ const PeptideDatabase = () => {
           </Card>
         ))}
       </div>
+
+      <AlertDialog open={selectedPeptide !== null} onOpenChange={() => setSelectedPeptide(null)}>
+        <AlertDialogContent className="max-w-3xl">
+          <AlertDialogHeader>
+            <AlertDialogTitle className="text-2xl">
+              {selectedPeptide?.id} Details
+            </AlertDialogTitle>
+            <AlertDialogDescription className="space-y-4">
+              {selectedPeptide && (
+                <>
+                  <div className="grid grid-cols-2 gap-4 mt-4">
+                    <div>
+                      <h3 className="font-semibold mb-2">Source Organism</h3>
+                      <p>{selectedPeptide.source}</p>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Sequence</h3>
+                      <p className="font-mono bg-gray-100 p-2 rounded">
+                        {selectedPeptide.sequence}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-2 gap-4 mt-4">
+                    <div>
+                      <h3 className="font-semibold mb-2">Antimicrobial Activity</h3>
+                      <div className="flex items-center gap-2">
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <div 
+                            className="bg-blue-600 h-2.5 rounded-full" 
+                            style={{width: `${selectedPeptide.properties.antimicrobialActivity * 100}%`}}
+                          ></div>
+                        </div>
+                        <span className="text-sm">
+                          {(selectedPeptide.properties.antimicrobialActivity * 100).toFixed(1)}%
+                        </span>
+                      </div>
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-2">Host Toxicity</h3>
+                      <div className="flex items-center gap-2">
+                        <div className="w-full bg-gray-200 rounded-full h-2.5">
+                          <div 
+                            className="bg-red-600 h-2.5 rounded-full" 
+                            style={{width: `${selectedPeptide.properties.hostToxicity * 100}%`}}
+                          ></div>
+                        </div>
+                        <span className="text-sm">
+                          {(selectedPeptide.properties.hostToxicity * 100).toFixed(1)}%
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </>
+              )}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction>Close</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
