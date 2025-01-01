@@ -1,7 +1,14 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
+const db = require('../config/database');
 
-class Peptide extends Model {}
+class Peptide {
+  static async findAll() {
+    return db('peptides').select('*');
+  }
+
+  static async create(data) {
+    return db('peptides').insert(data).returning('*');
+  }
+}
 
 Peptide.init({
   id: {
