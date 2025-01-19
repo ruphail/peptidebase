@@ -1,6 +1,6 @@
 # PeptideDB
 
-A comprehensive database for antimicrobial peptides, designed to accelerate research in fighting antibiotic resistance.
+A comprehensive database for antimicrobial peptides (AMPs), designed to accelerate research in fighting antibiotic resistance.
 
 This project exists to merge the existing AMP databases that are currently scattered around the internet in a similar vein to **PubChem** and **ProteinDB**. Currently we're including:
 - APD3
@@ -28,6 +28,7 @@ Permission and licenses still need to obtained for many of these datasets before
 ## Features
 
 - Searchable database of peptide sequences
+- Allow AMP researchers to easily contribute to the database
 - Experimental data tracking
 - Machine learning model integration
 - Visualization tools
