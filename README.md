@@ -2,7 +2,7 @@
 
 A comprehensive database for antimicrobial peptides, designed to accelerate research in fighting antibiotic resistance.
 
-This project exists to merge the existing AMP databases that are currently scattered around the internet:
+This project exists to merge the existing AMP databases that are currently scattered around the internet in a similar vein to pubChem and ProteinDB:
 - APD3
 - CAMPR3
 - DBAASP v3
