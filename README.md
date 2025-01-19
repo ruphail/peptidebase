@@ -3,25 +3,25 @@
 A comprehensive database for antimicrobial peptides, designed to accelerate research in fighting antibiotic resistance.
 
 This project exists to merge the existing AMP databases that are currently scattered around the internet:
-APD3
-CAMPR3
-DBAASP v3
-Defensins knowledgebase
-BaAMPs
-BACTIBASE
-DADP
-DRAMP
-Peptaibol
-LAMP
-YADAMP
-PhytAMP
-InverPep
-HIPdb
-Thiobase
-EnzyBase
-ParaPep
-dbAMP
-AntiTbPdb
+- APD3
+- CAMPR3
+- DBAASP v3
+- Defensins knowledgebase
+- BaAMPs
+- BACTIBASE
+- DADP
+- DRAMP
+- Peptaibol
+- LAMP
+- YADAMP
+- PhytAMP
+- InverPep
+- HIPdb
+- Thiobase
+- EnzyBase
+- ParaPep
+- dbAMP
+- AntiTbPdb
 
 Permission and licenses still need to obtained for many of these datasets before this can launch.
 
